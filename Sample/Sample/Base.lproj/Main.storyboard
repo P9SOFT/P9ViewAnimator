@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XJE-1O-sDP">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="GZN-yw-drM">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="XJE-1O-sDP" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7ry-Bw-bqG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8H5-Dc-M4g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rGp-8X-CRu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1351" y="21"/>
+        </scene>
+        <!--Venus View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="VenusViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h3r-hx-SCc">
+                                <rect key="frame" x="27" y="41" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.41854848" blue="0.42151660549999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Dance"/>
+                                <connections>
+                                    <action selector="danceButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rE5-3v-bzm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FGB-f7-uZ4">
+                                <rect key="frame" x="105" y="41" width="110" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.41854848" blue="0.42151660549999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Fly to Earth"/>
+                                <connections>
+                                    <action selector="flyToEarthButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VkJ-VO-vFQ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kingghidorah" translatesAutoresizingMaskIntoConstraints="NO" id="XxF-09-Gak">
+                                <rect key="frame" x="45" y="112" width="55" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.87873368825762788" green="0.95072591280705288" blue="0.99929161269430056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pbi-tW-uF2"/>
+                    <connections>
+                        <outlet property="danceButton" destination="h3r-hx-SCc" id="Z6a-JF-dQ5"/>
+                        <outlet property="flyToEarthButton" destination="FGB-f7-uZ4" id="M9e-8M-94N"/>
+                        <outlet property="kingghidorahImageView" destination="XxF-09-Gak" id="tVa-7T-Kib"/>
+                        <segue destination="SkG-Du-PUg" kind="show" identifier="flyToTheEarth" id="qyX-yQ-7H4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-548" y="19.340329835082461"/>
+        </scene>
+        <!--Earth View Controller-->
+        <scene sceneID="7wV-eK-bKM">
+            <objects>
+                <viewController id="SkG-Du-PUg" customClass="EarthViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NI2-xp-7T6"/>
+                        <viewControllerLayoutGuide type="bottom" id="9iY-st-nU0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5mj-nx-heY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kingghidorah" translatesAutoresizingMaskIntoConstraints="NO" id="lwr-ru-egR">
+                                <rect key="frame" x="43" y="128" width="120" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ds7-MW-doL" userLabel="Roar Button">
+                                <rect key="frame" x="24" y="50" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.41854848" blue="0.42151660549999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Roar"/>
+                                <connections>
+                                    <action selector="roarButtonTouchUpInside:" destination="SkG-Du-PUg" eventType="touchUpInside" id="xYi-gT-LgW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WhI-Yu-p2J">
+                                <rect key="frame" x="108" y="50" width="114" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.41854848" blue="0.42151660549999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Back to Venus"/>
+                                <connections>
+                                    <action selector="backToVenusButtonTouchUpInside:" destination="SkG-Du-PUg" eventType="touchUpInside" id="t7C-QC-LkE"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="godzilla" translatesAutoresizingMaskIntoConstraints="NO" id="3ba-9l-tEk">
+                                <rect key="frame" x="226" y="189" width="56" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.89527420657928858" green="1" blue="0.71954467094793884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="backToVenusButton" destination="WhI-Yu-p2J" id="gHp-D4-c41"/>
+                        <outlet property="godzillaImageView" destination="3ba-9l-tEk" id="rwx-lB-RI0"/>
+                        <outlet property="kingghidorahImageView" destination="lwr-ru-egR" id="jge-aX-R7H"/>
+                        <outlet property="roarButton" destination="Ds7-MW-doL" id="GJC-DS-m6f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F5j-zB-gzn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="19.340329835082461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="godzilla" width="116" height="200"/>
+        <image name="kingghidorah" width="301" height="198"/>
+    </resources>
+</document>
