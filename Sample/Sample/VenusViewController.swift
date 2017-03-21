@@ -25,6 +25,8 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         if self.hideKingghidorahViewWhenReady == true {
             self.kingghidorahImageView.alpha = 0.0
             self.hideKingghidorahViewWhenReady = false
+            self.danceButton.isEnabled = false
+            self.flyToEarthButton.isEnabled = false
         }
     }
 
@@ -52,8 +54,10 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         
         P9ViewAnimator.default().action(self.kingghidorahImageView, withScenario: danceScenarioName, delay: 0.0, targetObject: nil, beginning: { (actorView:UIView?) in
             self.danceButton.isEnabled = false
+            self.flyToEarthButton.isEnabled = false
         }) { (actorView:UIView?) in
             self.danceButton.isEnabled = true
+            self.flyToEarthButton.isEnabled = true
         }
     }
     
@@ -67,6 +71,8 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
             if( self.kingghidorahImageView != nil ) {
                 self.kingghidorahImageView.alpha = 0.0
+                self.danceButton.isEnabled = false
+                self.flyToEarthButton.isEnabled = false
             } else {
                 self.hideKingghidorahViewWhenReady = true
             }
@@ -77,6 +83,8 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         
         if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
             self.kingghidorahImageView.alpha = 1.0
+            self.danceButton.isEnabled = true
+            self.flyToEarthButton.isEnabled = true
         }
     }
     

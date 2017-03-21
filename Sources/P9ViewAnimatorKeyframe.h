@@ -27,7 +27,6 @@ typedef NS_ENUM(NSInteger, P9ViewAnimatorKeyframeType)
 
 typedef NS_ENUM(NSInteger, P9ViewAnimatorInterpolationType)
 {
-    P9ViewAnimatorInterpolationTypeDefault,
     P9ViewAnimatorInterpolationTypeLinear,
     P9ViewAnimatorInterpolationTypeEaseIn,
     P9ViewAnimatorInterpolationTypeEaseOut,

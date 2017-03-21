@@ -50,30 +50,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         P9ViewAnimator.default().addKeyframeTranslate(toScenario: flyToTheEarthScenarioName, after: 0.0, x: 0.0, y: 100.0, itprType: .easeIn)
         P9ViewAnimator.default().addKeyframeMorph(toScenario: flyToTheEarthScenarioName, after: 1.0, targetName: kighidorahTargetName, itprType: .linear)
         
-        P9ViewAnimator.default().createScenario(fightScenarioName)
-        P9ViewAnimator.default().addKeyframeRotateZ(toScenario: fightScenarioName, after: 0.2, angle: -10.0, anchorX: 0.5, anchorY: 1.0, itprType: .easeIn)
-        P9ViewAnimator.default().addKeyframeTranslate(toScenario: fightScenarioName, after: 0.0, x: -10.0, y: 0.0, itprType: .easeIn)
-        P9ViewAnimator.default().addKeyframeRotateZ(toScenario: fightScenarioName, after: 0.3, angle: 20.0, anchorX: 0.5, anchorY: 1.0, itprType: .linear)
-        P9ViewAnimator.default().addKeyframeTranslate(toScenario: fightScenarioName, after: 0.0, x: 20.0, y: 0.0, itprType: .linear)
-        P9ViewAnimator.default().addKeyframeRotateZ(toScenario: fightScenarioName, after: 0.3, angle: -20.0, anchorX: 0.5, anchorY: 1.0, itprType: .linear)
-        P9ViewAnimator.default().addKeyframeTranslate(toScenario: fightScenarioName, after: 0.0, x: -20.0, y: 0.0, itprType: .linear)
-        P9ViewAnimator.default().addKeyframeRotateZ(toScenario: fightScenarioName, after: 0.2, angle: 20.0, anchorX: 0.5, anchorY: 1.0, itprType: .linear)
-        P9ViewAnimator.default().addKeyframeTranslate(toScenario: fightScenarioName, after: 0.0, x: 20.0, y: 0.0, itprType: .linear)
-        P9ViewAnimator.default().addKeyframeRotateZ(toScenario: fightScenarioName, after: 0.2, angle: -20.0, anchorX: 0.5, anchorY: 1.0, itprType: .linear)
-        P9ViewAnimator.default().addKeyframeTranslate(toScenario: fightScenarioName, after: 0.0, x: -15.0, y: 0.0, itprType: .linear)
-        P9ViewAnimator.default().addKeyframeRotateZ(toScenario: fightScenarioName, after: 0.2, angle: 10.0, anchorX: 0.5, anchorY: 1.0, itprType: .easeOut)
-        P9ViewAnimator.default().addKeyframeTranslate(toScenario: fightScenarioName, after: 0.0, x: 5.0, y: 0.0, itprType: .easeOut)
-        
-        P9ViewAnimator.default().createScenario(flyToTheVenusScenarioName)
-        P9ViewAnimator.default().addKeyframeRotateZ(toScenario: flyToTheVenusScenarioName, after: 1.0, angle: 360.0, itprType: .easeIn)
-        P9ViewAnimator.default().addKeyframeAlpha(toScenario: flyToTheVenusScenarioName, after: 0.0, alpha: 0.4, itprType: .easeIn)
-        P9ViewAnimator.default().addKeyframeMorph(toScenario: flyToTheVenusScenarioName, after: 1.0, targetName: kighidorahTargetName, itprType: .easeOut)
-        P9ViewAnimator.default().addKeyframeAlpha(toScenario: flyToTheVenusScenarioName, after: 0.0, alpha: 1.0, itprType: .easeOut)
-        
         P9ViewAnimator.default().createScenario(souryukenScenarioName)
         P9ViewAnimator.default().addKeyframeFrameAni(toScenario: souryukenScenarioName, after: 0.2, targetName: ryuTargetName, velopcity: 1.0, loop: false, itprType: .linear)
         P9ViewAnimator.default().addKeyframeTranslate(toScenario: souryukenScenarioName, after: 0.0, x: 50.0, y: -50.0, itprType: .linear)
         P9ViewAnimator.default().addKeyframeTranslate(toScenario: souryukenScenarioName, after: 0.4, x: 0.0, y: 50.0, itprType: .linear)
+        
+        if let resourcePath = Bundle.main.resourcePath {
+            P9ViewAnimator.default().loadScenarios(fromFile: resourcePath+"/senarios.json", overwrite: true)
+        }
         
         return true
     }

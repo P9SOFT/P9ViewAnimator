@@ -18,9 +18,9 @@
 
 + (P9ViewAnimator *)defaultP9ViewAnimator;
 
-//- (BOOL)loadScenariosFromFile:(NSString *)filePath overwrite:(BOOL)overwrite;
-//- (BOOL)loadScenariosFromData:(NSData *)data overwrite:(BOOL)overwrite;
-//- (BOOL)loadScenariosFromDict:(NSDictionary *)scenarioDict overwrie:(BOOL)overwrite;
+- (BOOL)loadScenariosFromFile:(NSString *)filePath overwrite:(BOOL)overwrite;
+- (BOOL)loadScenariosFromData:(NSData *)data overwrite:(BOOL)overwrite;
+- (BOOL)loadScenariosFromDict:(NSDictionary *)scenarioDict overwrie:(BOOL)overwrite;
 
 - (BOOL)createScenario:(NSString *)scenarioName;
 - (void)removeScenarioForName:(NSString *)scenarioName;

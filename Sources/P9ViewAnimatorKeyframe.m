@@ -15,7 +15,7 @@
 {
     if( (self = [super init]) != nil ) {
         _type = P9ViewAnimatorKeyframeTypeDummy;
-        _itprType = P9ViewAnimatorInterpolationTypeDefault;
+        _itprType = P9ViewAnimatorInterpolationTypeLinear;
         _velocity = 1.0;
         _alpha = 1.0;
         _anchorX = 0.5;

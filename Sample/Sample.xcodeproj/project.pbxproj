@@ -19,6 +19,7 @@
 		02A73CF71E762F5A00B18B91 /* P9ViewAnimatorKeyframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF21E762F5A00B18B91 /* P9ViewAnimatorKeyframe.m */; };
 		02A73CF81E762F5A00B18B91 /* P9ViewAnimatorScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF41E762F5A00B18B91 /* P9ViewAnimatorScenario.m */; };
 		02A73CF91E762F5A00B18B91 /* P9ViewAnimatorScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF61E762F5A00B18B91 /* P9ViewAnimatorScript.m */; };
+		02EBF2261E81035100DA75BC /* senarios.json in Resources */ = {isa = PBXBuildFile; fileRef = 02EBF2251E81035100DA75BC /* senarios.json */; };
 		AD47DC33D3535D8A6935A5FA /* libPods-Sample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FB8639B86B054290AF2B50 /* libPods-Sample.a */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,7 @@
 		02A73CF51E762F5A00B18B91 /* P9ViewAnimatorScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = P9ViewAnimatorScript.h; path = ../Sources/P9ViewAnimatorScript.h; sourceTree = "<group>"; };
 		02A73CF61E762F5A00B18B91 /* P9ViewAnimatorScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = P9ViewAnimatorScript.m; path = ../Sources/P9ViewAnimatorScript.m; sourceTree = "<group>"; };
 		02A73CFA1E76300000B18B91 /* P9ViewAnimatorDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = P9ViewAnimatorDefine.h; path = ../Sources/P9ViewAnimatorDefine.h; sourceTree = "<group>"; };
+		02EBF2251E81035100DA75BC /* senarios.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = senarios.json; sourceTree = "<group>"; };
 		0A24AAE3738EC5195B10D92D /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
 		23FB8639B86B054290AF2B50 /* libPods-Sample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C66C143E1B158F68353EE7 /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 				02A73CDA1E762CE100B18B91 /* VenusViewController.swift */,
 				02788D391E7A8EAB00EF1FD7 /* EarthViewController.swift */,
 				027C77621E80B46200DECFA6 /* SimpleFrameAnimationScene.swift */,
+				02EBF2251E81035100DA75BC /* senarios.json */,
 				02A73CDC1E762CE100B18B91 /* Main.storyboard */,
 				02A73CE11E762CE100B18B91 /* LaunchScreen.storyboard */,
 				02A73CEB1E762D2D00B18B91 /* Sample-Bridging-Header.h */,
@@ -193,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A73CE31E762CE100B18B91 /* LaunchScreen.storyboard in Resources */,
+				02EBF2261E81035100DA75BC /* senarios.json in Resources */,
 				02A73CE01E762CE100B18B91 /* Assets.xcassets in Resources */,
 				02A73CDE1E762CE100B18B91 /* Main.storyboard in Resources */,
 			);
@@ -243,7 +247,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

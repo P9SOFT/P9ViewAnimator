@@ -23,26 +23,33 @@ typedef void(^P9ViewAnimatorActionBlock)(UIView *actingView);
 - (void)P9ViewAnimatorSetVelocity:(CGFloat)relativeVelocity forTargetName:(NSString *)targetName;
 - (void)P9ViewAnimatorSetLoop:(BOOL)loop forTargetName:(NSString *)targetName;
 - (void)P9ViewAnimatorPlayTargetName:(NSString *)targetName;
-//- (void)P9ViewAnimatorStopTargetName:(NSString *)targetName;
 
 @end
 
-/*!
- JSON file attribute list
- */
-//#define     P9ViewAnimatorKeyframeAfter             @"after"
-//#define     P9ViewAnimatorKeyframeAlpha             @"alpha"
-//#define     P9ViewAnimatorKeyframeTranslateX        @"translateX"
-//#define     P9ViewAnimatorKeyframeTranslateY        @"translateY"
-//#define     P9ViewAnimatorKeyframeTranslateZ        @"translateZ"
-//#define     P9ViewAnimatorKeyframeRotateX           @"rotateX"
-//#define     P9ViewAnimatorKeyframeRotateY           @"rotateY"
-//#define     P9ViewAnimatorKeyframeRotateZ           @"rotateZ"
-//#define     P9ViewAnimatorKeyframeRotateAnchorX     @"rotateAnchorX"
-//#define     P9ViewAnimatorKeyframeRotateAnchorY     @"rotateAnchorY"
-//#define     P9ViewAnimatorKeyframeScaleX            @"scaleX"
-//#define     P9ViewAnimatorKeyframeScaleY            @"scaleY"
-//#define     P9ViewAnimatorKeyframeScaleZ            @"scaleZ"
-//#define     P9ViewAnimatorKeyframeScaleAnchorX      @"scaleAnchorX"
-//#define     P9ViewAnimatorKeyframeScaleAnchorY      @"scaleAnchorY"
-//#define     P9ViewAnimatorKeyframeFrameAni          @"frameAni"
+#define     P9ViewAnimatorAttributeType             @"type"
+#define     P9ViewAnimatorAttributeAfter            @"after"
+#define     P9ViewAnimatorAttributeTarget           @"target"
+#define     P9ViewAnimatorAttributeVelocity         @"velocity"
+#define     P9ViewAnimatorAttributeLoop             @"loop"
+#define     P9ViewAnimatorAttributeAlpha            @"alpha"
+#define     P9ViewAnimatorAttributeX                @"x"
+#define     P9ViewAnimatorAttributeY                @"y"
+#define     P9ViewAnimatorAttributeZ                @"z"
+#define     P9ViewAnimatorAttributeAngle            @"angle"
+#define     P9ViewAnimatorAttributeAnchorX          @"anchorX"
+#define     P9ViewAnimatorAttributeAnchorY          @"anchorY"
+#define     P9ViewAnimatorAttributeInterpolation    @"interpolation"
+
+#define     P9ViewAnimatorAttributeTypeFrameAni             @"frameAnimation"
+#define     P9ViewAnimatorAttributeTypeMorph                @"morph"
+#define     P9ViewAnimatorAttributeTypeAlpha                @"alpha"
+#define     P9ViewAnimatorAttributeTypeTranslate            @"translate"
+#define     P9ViewAnimatorAttributeTypeRotateX              @"rotateX"
+#define     P9ViewAnimatorAttributeTypeRotateY              @"rotateY"
+#define     P9ViewAnimatorAttributeTypeRotateZ              @"rotateZ"
+#define     P9ViewAnimatorAttributeTypeScale                @"scale"
+
+#define     P9ViewAnimatorAttributeInterpolationLinear      @"linear"
+#define     P9ViewAnimatorAttributeInterpolationEaseIn      @"easeIn"
+#define     P9ViewAnimatorAttributeInterpolationEaseOut     @"easeOut"
+#define     P9ViewAnimatorAttributeInterpolationEaseInOut   @"easeInOut"

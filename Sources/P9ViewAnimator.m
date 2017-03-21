@@ -57,31 +57,162 @@
     return self;
 }
 
-//- (BOOL)loadScenariosFromFile:(NSString *)filePath overwrite:(BOOL)overwrite
-//{
-//    if( filePath.length == 0 ) {
-//        return NO;
-//    }
-//    NSData *data = [NSData dataWithContentsOfFile:filePath];
-//    return [self loadScenariosFromData:data overwrite:overwrite];
-//}
-//
-//- (BOOL)loadScenariosFromData:(NSData *)data overwrite:(BOOL)overwrite
-//{
-//    if( data == nil ) {
-//        return NO;
-//    }
-//    id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//    if( [jsonObject isKindOfClass:[NSMutableDictionary class]] == NO ) {
-//        return NO;
-//    }
-//    return [self loadScenariosFromDict:jsonObject overwrie:overwrite];
-//}
-//
-//- (BOOL)loadScenariosFromDict:(NSDictionary *)scenarioDict overwrie:(BOOL)overwrite
-//{
-//    return YES;
-//}
+- (BOOL)loadScenariosFromFile:(NSString *)filePath overwrite:(BOOL)overwrite
+{
+    if( filePath.length == 0 ) {
+        return NO;
+    }
+    NSData *data = [NSData dataWithContentsOfFile:filePath];
+    return [self loadScenariosFromData:data overwrite:overwrite];
+}
+
+- (BOOL)loadScenariosFromData:(NSData *)data overwrite:(BOOL)overwrite
+{
+    if( data == nil ) {
+        return NO;
+    }
+    id jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if( [jsonObject isKindOfClass:[NSDictionary class]] == NO ) {
+        return NO;
+    }
+    return [self loadScenariosFromDict:jsonObject overwrie:overwrite];
+}
+
+- (BOOL)loadScenariosFromDict:(NSDictionary *)scenarioDict overwrie:(BOOL)overwrite
+{
+    NSDictionary *keyframeTypeDict = @{
+                                        P9ViewAnimatorAttributeTypeFrameAni:@(P9ViewAnimatorKeyframeTypeFrameAni),
+                                        P9ViewAnimatorAttributeTypeMorph:@(P9ViewAnimatorKeyframeTypeMorphTargetName),
+                                        P9ViewAnimatorAttributeTypeAlpha:@(P9ViewAnimatorKeyframeTypeAlpha),
+                                        P9ViewAnimatorAttributeTypeTranslate:@(P9ViewAnimatorKeyframeTypeTranslate),
+                                        P9ViewAnimatorAttributeTypeRotateX:@(P9ViewAnimatorKeyframeTypeRotate),
+                                        P9ViewAnimatorAttributeTypeRotateY:@(P9ViewAnimatorKeyframeTypeRotate),
+                                        P9ViewAnimatorAttributeTypeRotateZ:@(P9ViewAnimatorKeyframeTypeRotate),
+                                        P9ViewAnimatorAttributeTypeScale:@(P9ViewAnimatorKeyframeTypeScale)
+                                       };
+    NSDictionary *interpolationDict = @{
+                                        P9ViewAnimatorAttributeInterpolationLinear:@(P9ViewAnimatorInterpolationTypeLinear),
+                                        P9ViewAnimatorAttributeInterpolationEaseIn:@(P9ViewAnimatorInterpolationTypeEaseIn),
+                                        P9ViewAnimatorAttributeInterpolationEaseOut:@(P9ViewAnimatorInterpolationTypeEaseOut),
+                                        P9ViewAnimatorAttributeInterpolationEaseInOut:@(P9ViewAnimatorInterpolationTypeEaseInOut),
+                                       };
+    
+    @synchronized (self) {
+        for(NSString *scenarioName in scenarioDict) {
+            if( overwrite == YES ) {
+                [self removeScenarioForName:scenarioName];
+            }
+            if( [self createScenario:scenarioName] == NO ) {
+                continue;
+            }
+            P9ViewAnimatorScenario *scenario = _scenarioDict[scenarioName];
+            NSArray *keyframeList = scenarioDict[scenarioName];
+            for(NSDictionary *keyframeDict in keyframeList) {
+                NSString *keyframeTypeValue = keyframeDict[P9ViewAnimatorAttributeType];
+                P9ViewAnimatorKeyframeType type = (keyframeTypeValue != nil) ? (P9ViewAnimatorKeyframeType)[keyframeTypeDict[keyframeTypeValue] integerValue] : P9ViewAnimatorKeyframeTypeTranslate;
+                NSTimeInterval after = (NSTimeInterval)[keyframeDict[P9ViewAnimatorAttributeAfter] doubleValue];
+                NSString *targetName = keyframeDict[P9ViewAnimatorAttributeTarget];
+                CGFloat velocity = (keyframeDict[P9ViewAnimatorAttributeVelocity] != nil) ? (CGFloat)[keyframeDict[P9ViewAnimatorAttributeVelocity] floatValue] : 1.0;
+                BOOL loop = [keyframeDict[P9ViewAnimatorAttributeLoop] boolValue];
+                CGFloat alpha = (keyframeDict[P9ViewAnimatorAttributeTypeAlpha] != nil) ? (CGFloat)[keyframeDict[P9ViewAnimatorAttributeTypeAlpha] floatValue] : 1.0;
+                CGFloat x = (CGFloat)[keyframeDict[P9ViewAnimatorAttributeX] floatValue];
+                CGFloat y = (CGFloat)[keyframeDict[P9ViewAnimatorAttributeY] floatValue];
+                CGFloat z = (CGFloat)[keyframeDict[P9ViewAnimatorAttributeZ] floatValue];
+                CGFloat angle = (CGFloat)[keyframeDict[P9ViewAnimatorAttributeAngle] floatValue];
+                CGFloat anchorX = (keyframeDict[P9ViewAnimatorAttributeAnchorX] != nil) ? (CGFloat)[keyframeDict[P9ViewAnimatorAttributeAnchorX] floatValue] : 0.5;
+                CGFloat anchorY = (keyframeDict[P9ViewAnimatorAttributeAnchorY] != nil) ? (CGFloat)[keyframeDict[P9ViewAnimatorAttributeAnchorY] floatValue] : 0.5;
+                P9ViewAnimatorInterpolationType itprType = (keyframeDict[P9ViewAnimatorAttributeInterpolation] != nil) ? (P9ViewAnimatorInterpolationType)[interpolationDict[keyframeDict[P9ViewAnimatorAttributeInterpolation]] integerValue] : P9ViewAnimatorInterpolationTypeLinear;
+                BOOL knownData = YES;
+                switch( type ) {
+                    case P9ViewAnimatorKeyframeTypeFrameAni :
+                        if( targetName == nil ) {
+                            knownData = NO;
+                        }
+                        break;
+                    case P9ViewAnimatorKeyframeTypeMorphTargetName :
+                        if( targetName == nil ) {
+                            knownData = NO;
+                        }
+                        break;
+                    case P9ViewAnimatorKeyframeTypeAlpha :
+                        if( (alpha < 0.0) || (alpha > 1.0) ) {
+                            knownData = NO;
+                        }
+                        break;
+                    case P9ViewAnimatorKeyframeTypeTranslate :
+                    case P9ViewAnimatorKeyframeTypeScale :
+                        break;
+                    case P9ViewAnimatorKeyframeTypeRotate :
+                        if( [keyframeTypeValue isEqualToString:P9ViewAnimatorAttributeTypeRotateX] == YES ) {
+                            x = 1.0;
+                            y = z = 0.0;
+                        } else if( [keyframeTypeValue isEqualToString:P9ViewAnimatorAttributeTypeRotateY] == YES ) {
+                            y = 1.0;
+                            x = z = 0.0;
+                        } else {
+                            z = 1.0;
+                            x = y = 0.0;
+                        }
+                        break;
+                    default :
+                        knownData = NO;
+                        break;
+                }
+                if( knownData == NO ) {
+                    type = P9ViewAnimatorKeyframeTypeTranslate;
+                    x = y = z = 0.0;
+                }
+                P9ViewAnimatorKeyframe *keyframe = [self keyframeForAddType:type after:after fromKeyframes:scenario.keyframes];
+                if( keyframe == nil ) {
+                    continue;
+                }
+                switch( type ) {
+                    case P9ViewAnimatorKeyframeTypeFrameAni :
+                        keyframe.targetName = targetName;
+                        keyframe.velocity = velocity;
+                        keyframe.loop = loop;
+                        keyframe.itprType = itprType;
+                        break;
+                    case P9ViewAnimatorKeyframeTypeMorphTargetName :
+                        keyframe.targetName = targetName;
+                        keyframe.itprType = itprType;
+                        break;
+                    case P9ViewAnimatorKeyframeTypeAlpha :
+                        keyframe.alpha = alpha;
+                        keyframe.itprType = itprType;
+                        break;
+                    case P9ViewAnimatorKeyframeTypeTranslate :
+                        keyframe.x = x;
+                        keyframe.y = y;
+                        keyframe.z = 0.0;
+                        keyframe.itprType = itprType;
+                        break;
+                    case P9ViewAnimatorKeyframeTypeRotate :
+                        keyframe.angle = angle;
+                        keyframe.x = x;
+                        keyframe.y = y;
+                        keyframe.z = z;
+                        keyframe.anchorX = anchorX;
+                        keyframe.anchorY = anchorY;
+                        keyframe.itprType = itprType;
+                        break;
+                    case P9ViewAnimatorKeyframeTypeScale :
+                        keyframe.x = x;
+                        keyframe.y = y;
+                        keyframe.z = 1.0;
+                        keyframe.anchorX = anchorX;
+                        keyframe.anchorY = anchorY;
+                        keyframe.itprType = itprType;
+                        break;
+                    default :
+                        return NO;
+                }
+            }
+        }
+    }
+    
+    return YES;
+}
 
 - (BOOL)createScenario:(NSString *)scenarioName
 {
@@ -622,9 +753,6 @@
     }
     
     if( script.keyframes.count == 0 ) {
-        if( script.targetObject != nil ) {
-            [script.targetObject P9ViewAnimatorScenarioEnded:script.scenarioName];
-        }
         [self clearScript:script];
         if( script.completion != nil ) {
             script.completion(script.actorView);
@@ -915,6 +1043,9 @@
     }
     @synchronized (self) {
         [_actorViewDict removeObjectForKey:[self keyForObject:script.actorView]];
+    }
+    if( [script.targetObject respondsToSelector:@selector(P9ViewAnimatorScenarioEnded:)] == YES ) {
+        [script.targetObject P9ViewAnimatorScenarioEnded:script.scenarioName];
     }
 }
 

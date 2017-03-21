@@ -41,6 +41,8 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         if self.hideKingghidorahViewWhenReady == true {
             self.kingghidorahImageView.alpha = 0.0
             self.hideKingghidorahViewWhenReady = false
+            self.roarButton.isEnabled = false
+            self.backToVenusButton.isEnabled = false
         }
         
         P9ViewDragger.defaultTracker().trackingView(self.ryuView, parameters: nil, ready: nil, trackingHandler: nil, completion: nil)
@@ -53,11 +55,14 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
 
     @IBAction func roarButtonTouchUpInside(_ sender: UIButton) {
         
-        P9ViewAnimator.default().action(self.kingghidorahImageView, withScenario: fightScenarioName, delay: 0.0, targetObject: nil, beginning: nil, completion: nil)
-        P9ViewAnimator.default().action(self.godzillaImageView, withScenario: fightScenarioName, delay: 1.0, targetObject: nil, beginning: { (actorView:UIView?) in
+        P9ViewAnimator.default().action(self.kingghidorahImageView, withScenario: roarScenarioName, delay: 0.0, targetObject: nil, beginning: { (actorView:UIView?) in
             self.roarButton.isEnabled = false
-        }) { (actorView:UIView?) in
+            self.backToVenusButton.isEnabled = false
+        }, completion: nil)
+        
+        P9ViewAnimator.default().action(self.godzillaImageView, withScenario: roarScenarioName, delay: 1.0, targetObject: nil, beginning: nil) { (actorView:UIView?) in
             self.roarButton.isEnabled = true
+            self.backToVenusButton.isEnabled = true
         }
     }
     
@@ -91,6 +96,8 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
             if( self.kingghidorahImageView != nil ) {
                 self.kingghidorahImageView.alpha = 0.0
+                self.roarButton.isEnabled = false
+                self.backToVenusButton.isEnabled = false
             } else {
                 self.hideKingghidorahViewWhenReady = true
             }
@@ -101,6 +108,8 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         
         if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
             self.kingghidorahImageView.alpha = 1.0
+            self.roarButton.isEnabled = true
+            self.backToVenusButton.isEnabled = true
         }
     }
     
