@@ -13,8 +13,8 @@ typedef void(^P9ViewAnimatorActionBlock)(UIView *actingView);
 
 @protocol P9ViewAnimatorTargetObjectProtocol <NSObject>
 
-- (void)P9ViewAnimatorStarted;
-- (void)P9ViewAnimatorEnded;
+- (void)P9ViewAnimatorScenarioStarted:(NSString *)scenarioName;
+- (void)P9ViewAnimatorScenarioEnded:(NSString *)scenarioName;
 - (BOOL)P9ViewAnimatorReadyForTargetName:(NSString *)targetName;
 
 @optional
@@ -23,7 +23,7 @@ typedef void(^P9ViewAnimatorActionBlock)(UIView *actingView);
 - (void)P9ViewAnimatorSetVelocity:(CGFloat)relativeVelocity forTargetName:(NSString *)targetName;
 - (void)P9ViewAnimatorSetLoop:(BOOL)loop forTargetName:(NSString *)targetName;
 - (void)P9ViewAnimatorPlayTargetName:(NSString *)targetName;
-- (void)P9ViewAnimatorStopTargetName:(NSString *)targetName;
+//- (void)P9ViewAnimatorStopTargetName:(NSString *)targetName;
 
 @end
 

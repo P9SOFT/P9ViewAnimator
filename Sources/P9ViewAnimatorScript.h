@@ -12,6 +12,7 @@
 
 @interface P9ViewAnimatorScript : NSObject
 
+@property (nonatomic, strong) NSString *scenarioName;
 @property (nonatomic, strong) UIView *actorView;
 @property (nonatomic, assign) CGRect actorViewOriginFrame;
 @property (nonatomic, strong) UIView *decoyView;

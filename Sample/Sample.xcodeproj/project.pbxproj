@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02788D3A1E7A8EAB00EF1FD7 /* EarthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02788D391E7A8EAB00EF1FD7 /* EarthViewController.swift */; };
 		027C77611E7F712D00DECFA6 /* CommonDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027C77601E7F712D00DECFA6 /* CommonDefines.swift */; };
+		027C77631E80B46200DECFA6 /* SimpleFrameAnimationScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027C77621E80B46200DECFA6 /* SimpleFrameAnimationScene.swift */; };
 		02A73CD91E762CE100B18B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CD81E762CE100B18B91 /* AppDelegate.swift */; };
 		02A73CDB1E762CE100B18B91 /* VenusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CDA1E762CE100B18B91 /* VenusViewController.swift */; };
 		02A73CDE1E762CE100B18B91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02A73CDC1E762CE100B18B91 /* Main.storyboard */; };
@@ -18,11 +19,13 @@
 		02A73CF71E762F5A00B18B91 /* P9ViewAnimatorKeyframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF21E762F5A00B18B91 /* P9ViewAnimatorKeyframe.m */; };
 		02A73CF81E762F5A00B18B91 /* P9ViewAnimatorScenario.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF41E762F5A00B18B91 /* P9ViewAnimatorScenario.m */; };
 		02A73CF91E762F5A00B18B91 /* P9ViewAnimatorScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A73CF61E762F5A00B18B91 /* P9ViewAnimatorScript.m */; };
+		AD47DC33D3535D8A6935A5FA /* libPods-Sample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23FB8639B86B054290AF2B50 /* libPods-Sample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		02788D391E7A8EAB00EF1FD7 /* EarthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthViewController.swift; sourceTree = "<group>"; };
 		027C77601E7F712D00DECFA6 /* CommonDefines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonDefines.swift; sourceTree = "<group>"; };
+		027C77621E80B46200DECFA6 /* SimpleFrameAnimationScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleFrameAnimationScene.swift; sourceTree = "<group>"; };
 		02A73CD51E762CE000B18B91 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A73CD81E762CE100B18B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02A73CDA1E762CE100B18B91 /* VenusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenusViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +43,9 @@
 		02A73CF51E762F5A00B18B91 /* P9ViewAnimatorScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = P9ViewAnimatorScript.h; path = ../Sources/P9ViewAnimatorScript.h; sourceTree = "<group>"; };
 		02A73CF61E762F5A00B18B91 /* P9ViewAnimatorScript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = P9ViewAnimatorScript.m; path = ../Sources/P9ViewAnimatorScript.m; sourceTree = "<group>"; };
 		02A73CFA1E76300000B18B91 /* P9ViewAnimatorDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = P9ViewAnimatorDefine.h; path = ../Sources/P9ViewAnimatorDefine.h; sourceTree = "<group>"; };
+		0A24AAE3738EC5195B10D92D /* Pods-Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.release.xcconfig"; sourceTree = "<group>"; };
+		23FB8639B86B054290AF2B50 /* libPods-Sample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		65C66C143E1B158F68353EE7 /* Pods-Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sample/Pods-Sample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD47DC33D3535D8A6935A5FA /* libPods-Sample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +66,8 @@
 				02A73CD71E762CE000B18B91 /* Sample */,
 				02A73CEA1E762CED00B18B91 /* P9ViewAnimator */,
 				02A73CD61E762CE000B18B91 /* Products */,
+				5EA06D1FF8A8533A41B470DD /* Pods */,
+				F7E6F306D7F08B5FD6CE9D53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +86,7 @@
 				02A73CD81E762CE100B18B91 /* AppDelegate.swift */,
 				02A73CDA1E762CE100B18B91 /* VenusViewController.swift */,
 				02788D391E7A8EAB00EF1FD7 /* EarthViewController.swift */,
+				027C77621E80B46200DECFA6 /* SimpleFrameAnimationScene.swift */,
 				02A73CDC1E762CE100B18B91 /* Main.storyboard */,
 				02A73CE11E762CE100B18B91 /* LaunchScreen.storyboard */,
 				02A73CEB1E762D2D00B18B91 /* Sample-Bridging-Header.h */,
@@ -102,6 +112,23 @@
 			name = P9ViewAnimator;
 			sourceTree = "<group>";
 		};
+		5EA06D1FF8A8533A41B470DD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				65C66C143E1B158F68353EE7 /* Pods-Sample.debug.xcconfig */,
+				0A24AAE3738EC5195B10D92D /* Pods-Sample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F7E6F306D7F08B5FD6CE9D53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23FB8639B86B054290AF2B50 /* libPods-Sample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -109,9 +136,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 02A73CE71E762CE100B18B91 /* Build configuration list for PBXNativeTarget "Sample" */;
 			buildPhases = (
+				DD61C2F3A14FAAC17AC45B3F /* [CP] Check Pods Manifest.lock */,
 				02A73CD11E762CE000B18B91 /* Sources */,
 				02A73CD21E762CE000B18B91 /* Frameworks */,
 				02A73CD31E762CE000B18B91 /* Resources */,
+				24226FDF6A8B5645C9A5B9AF /* [CP] Embed Pods Frameworks */,
+				3C9348B61D69F49EA44E14E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,6 +200,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		24226FDF6A8B5645C9A5B9AF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sample/Pods-Sample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C9348B61D69F49EA44E14E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Sample/Pods-Sample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD61C2F3A14FAAC17AC45B3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run \'pod install\' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		02A73CD11E762CE000B18B91 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -178,6 +256,7 @@
 				02A73CDB1E762CE100B18B91 /* VenusViewController.swift in Sources */,
 				02788D3A1E7A8EAB00EF1FD7 /* EarthViewController.swift in Sources */,
 				02A73CD91E762CE100B18B91 /* AppDelegate.swift in Sources */,
+				027C77631E80B46200DECFA6 /* SimpleFrameAnimationScene.swift in Sources */,
 				02A73CF91E762F5A00B18B91 /* P9ViewAnimatorScript.m in Sources */,
 				02A73CEE1E762D2D00B18B91 /* P9ViewAnimator.m in Sources */,
 				027C77611E7F712D00DECFA6 /* CommonDefines.swift in Sources */,
@@ -301,6 +380,7 @@
 		};
 		02A73CE81E762CE100B18B91 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65C66C143E1B158F68353EE7 /* Pods-Sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -316,6 +396,7 @@
 		};
 		02A73CE91E762CE100B18B91 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A24AAE3738EC5195B10D92D /* Pods-Sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

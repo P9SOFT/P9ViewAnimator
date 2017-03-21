@@ -393,6 +393,7 @@
             if( _actorViewDict[[self keyForObject:actorView]] == nil ) {
                 P9ViewAnimatorScenario *scenario = _scenarioDict[scenarioName];
                 if( (script != nil) && (scenario != nil) ) {
+                    script.scenarioName = scenarioName;
                     script.actorView = actorView;
                     script.actorViewOriginFrame = actorView.frame;
                     script.keyframes = [[NSMutableArray alloc] initWithArray:scenario.keyframes];
@@ -445,6 +446,7 @@
                 P9ViewAnimatorScenario *scenario = _scenarioDict[scenarioName];
                 if( (script != nil) && (scenario != nil) ) {
                     [currentStageView addSubview:decoyView];
+                    script.scenarioName = scenarioName;
                     script.actorView = actorView;
                     script.actorViewOriginFrame = actorView.frame;
                     script.decoyView = decoyView;
@@ -585,7 +587,7 @@
             script.beginning(script.actorView);
         }
         if( script.targetObject != nil ) {
-            [script.targetObject P9ViewAnimatorStarted];
+            [script.targetObject P9ViewAnimatorScenarioStarted:script.scenarioName];
         }
         UIView *realActorView = (script.decoyView != nil) ? script.decoyView : script.actorView;
         while( script.keyframes.count > 0 ) {
@@ -621,7 +623,7 @@
     
     if( script.keyframes.count == 0 ) {
         if( script.targetObject != nil ) {
-            [script.targetObject P9ViewAnimatorEnded];
+            [script.targetObject P9ViewAnimatorScenarioEnded:script.scenarioName];
         }
         [self clearScript:script];
         if( script.completion != nil ) {
@@ -735,14 +737,22 @@
     switch (keyframe.type) {
         case P9ViewAnimatorKeyframeTypeFrameAni :
             if( (keyframe.targetName.length > 0) && (targetObject != nil) ) {
-                [targetObject P9ViewAnimatorSetLoop:keyframe.loop forTargetName:keyframe.targetName];
-                [targetObject P9ViewAnimatorSetVelocity:keyframe.velocity forTargetName:keyframe.targetName];
-                [targetObject P9ViewAnimatorPlayTargetName:keyframe.targetName];
+                if( [targetObject respondsToSelector:@selector(P9ViewAnimatorSetLoop:forTargetName:)] == YES ) {
+                    [targetObject P9ViewAnimatorSetLoop:keyframe.loop forTargetName:keyframe.targetName];
+                }
+                if( [targetObject respondsToSelector:@selector(P9ViewAnimatorSetVelocity:forTargetName:)] == YES ) {
+                    [targetObject P9ViewAnimatorSetVelocity:keyframe.velocity forTargetName:keyframe.targetName];
+                }
+                if( [targetObject respondsToSelector:@selector(P9ViewAnimatorPlayTargetName:)] == YES ) {
+                    [targetObject P9ViewAnimatorPlayTargetName:keyframe.targetName];
+                }
             }
             break;
         case P9ViewAnimatorKeyframeTypeMorphTargetName :
             if( (keyframe.targetName.length > 0) && (targetObject != nil) ) {
-                targetView = [targetObject P9ViewAnimatorViewForTargetName:keyframe.targetName];
+                if( [targetObject respondsToSelector:@selector(P9ViewAnimatorViewForTargetName:)] == YES ) {
+                    targetView = [targetObject P9ViewAnimatorViewForTargetName:keyframe.targetName];
+                }
             }
         case P9ViewAnimatorKeyframeTypeMorphTargetView :
             if( targetView == nil ) {
@@ -754,7 +764,11 @@
                 UIView *relativeView = (targetView.superview != nil) ? targetView.superview : targetView;
                 targetFrame = [crieriaView convertRect:targetView.frame fromView:relativeView];
             } else {
-                targetFrame = keyframe.targetFrame;
+                if( [targetObject respondsToSelector:@selector(P9ViewAnimatorFrameForTargetName:)] == YES ) {
+                    targetFrame = [targetObject P9ViewAnimatorFrameForTargetName:keyframe.targetName];
+                } else {
+                    targetFrame = keyframe.targetFrame;
+                }
             }
             CGFloat rz = TO_DEGREE([[actorView.layer valueForKeyPath:@"transform.rotation.z"] floatValue]);
             if( (rz/360.0) != 0.0 ) {

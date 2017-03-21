@@ -86,6 +86,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvH-hD-LRU">
+                                <rect key="frame" x="24" y="301" width="175" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Press Play Button to play
+or drag character.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kingghidorah" translatesAutoresizingMaskIntoConstraints="NO" id="lwr-ru-egR">
                                 <rect key="frame" x="43" y="128" width="120" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -112,6 +121,20 @@
                                 <rect key="frame" x="226" y="189" width="56" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vu-qp-ue1" userLabel="Souryuken Button">
+                                <rect key="frame" x="24" y="263" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.41854848" blue="0.42151660549999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButtonTouchUpInside:" destination="SkG-Du-PUg" eventType="touchUpInside" id="tm9-3a-plG"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pKt-nr-tca" userLabel="Ryu View" customClass="SKView">
+                                <rect key="frame" x="43" y="348" width="80" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.89527420657928858" green="1" blue="0.71954467094793884" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -119,7 +142,9 @@
                         <outlet property="backToVenusButton" destination="WhI-Yu-p2J" id="gHp-D4-c41"/>
                         <outlet property="godzillaImageView" destination="3ba-9l-tEk" id="rwx-lB-RI0"/>
                         <outlet property="kingghidorahImageView" destination="lwr-ru-egR" id="jge-aX-R7H"/>
+                        <outlet property="playButton" destination="9Vu-qp-ue1" id="XKd-88-HUp"/>
                         <outlet property="roarButton" destination="Ds7-MW-doL" id="GJC-DS-m6f"/>
+                        <outlet property="ryuView" destination="pKt-nr-tca" id="KoC-pr-Agg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5j-zB-gzn" userLabel="First Responder" sceneMemberID="firstResponder"/>

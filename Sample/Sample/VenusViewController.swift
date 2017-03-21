@@ -62,18 +62,22 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         self.performSegue(withIdentifier: flyToTheEarthIdentifier, sender: self)
     }
     
-    func p9ViewAnimatorStarted() {
-        
-        if( self.kingghidorahImageView != nil ) {
-            self.kingghidorahImageView.alpha = 0.0
-        } else {
-            self.hideKingghidorahViewWhenReady = true
+    func p9ViewAnimatorScenarioStarted(_ scenarioName: String!) {
+
+        if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
+            if( self.kingghidorahImageView != nil ) {
+                self.kingghidorahImageView.alpha = 0.0
+            } else {
+                self.hideKingghidorahViewWhenReady = true
+            }
         }
     }
     
-    func p9ViewAnimatorEnded() {
+    func p9ViewAnimatorScenarioEnded(_ scenarioName: String!) {
         
-        self.kingghidorahImageView.alpha = 1.0
+        if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
+            self.kingghidorahImageView.alpha = 1.0
+        }
     }
     
     func p9ViewAnimatorReady(forTargetName targetName: String!) -> Bool {

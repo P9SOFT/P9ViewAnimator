@@ -70,6 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         P9ViewAnimator.default().addKeyframeMorph(toScenario: flyToTheVenusScenarioName, after: 1.0, targetName: kighidorahTargetName, itprType: .easeOut)
         P9ViewAnimator.default().addKeyframeAlpha(toScenario: flyToTheVenusScenarioName, after: 0.0, alpha: 1.0, itprType: .easeOut)
         
+        P9ViewAnimator.default().createScenario(souryukenScenarioName)
+        P9ViewAnimator.default().addKeyframeFrameAni(toScenario: souryukenScenarioName, after: 0.2, targetName: ryuTargetName, velopcity: 1.0, loop: false, itprType: .linear)
+        P9ViewAnimator.default().addKeyframeTranslate(toScenario: souryukenScenarioName, after: 0.0, x: 50.0, y: -50.0, itprType: .linear)
+        P9ViewAnimator.default().addKeyframeTranslate(toScenario: souryukenScenarioName, after: 0.4, x: 0.0, y: 50.0, itprType: .linear)
+        
         return true
     }
 

@@ -8,6 +8,7 @@
 //  Licensed under the MIT license.
 
 import UIKit
+import SpriteKit
 
 class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol {
 
@@ -15,17 +16,34 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
     @IBOutlet var godzillaImageView: UIImageView!
     @IBOutlet var roarButton: UIButton!
     @IBOutlet var backToVenusButton: UIButton!
+    @IBOutlet var playButton: UIButton!
+    @IBOutlet var ryuView: SKView!
     
+    lazy var ryuScene:SimpleFrameAnimationScene = SimpleFrameAnimationScene()
     var hideKingghidorahViewWhenReady:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        let frames = ["0.0:0.0:0.2:1.0",
+                      "0.16:0.0:0.2:1.0",
+                      "0.32:0.0:0.2:1.0",
+                      "0.48:0.0:0.2:1.0",
+                      "0.64:0.0:0.2:1.0",
+                      "0.8:0.0:0.2:1.0",
+                      "0.0:0.0:0.2:1.0"];
+        if( self.ryuScene.load(UIImage(named:"ryuSouryuken"), frames: frames, timePerFrame: 0.1) == true ) {
+            //self.ryuView.showsFPS = true
+            self.ryuView.presentScene(self.ryuScene)
+        }
+        
         if self.hideKingghidorahViewWhenReady == true {
             self.kingghidorahImageView.alpha = 0.0
             self.hideKingghidorahViewWhenReady = false
         }
+        
+        P9ViewDragger.defaultTracker().trackingView(self.ryuView, parameters: nil, ready: nil, trackingHandler: nil, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +58,15 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
             self.roarButton.isEnabled = false
         }) { (actorView:UIView?) in
             self.roarButton.isEnabled = true
+        }
+    }
+    
+    @IBAction func playButtonTouchUpInside(_ sender: UIButton) {
+        
+        P9ViewAnimator.default().action(self.ryuView, withScenario: souryukenScenarioName, delay: 0.0, targetObject: self, beginning: { (actorView:UIView?) in
+            self.playButton.isEnabled = false
+        }) { (actorView:UIView?) in
+            self.playButton.isEnabled = true
         }
     }
     
@@ -59,45 +86,87 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         }
     }
     
-    func p9ViewAnimatorStarted() {
-        
-        if( self.kingghidorahImageView != nil ) {
-            self.kingghidorahImageView.alpha = 0.0
-        } else {
-            self.hideKingghidorahViewWhenReady = true
+    func p9ViewAnimatorScenarioStarted(_ scenarioName: String!) {
+
+        if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
+            if( self.kingghidorahImageView != nil ) {
+                self.kingghidorahImageView.alpha = 0.0
+            } else {
+                self.hideKingghidorahViewWhenReady = true
+            }
         }
     }
     
-    func p9ViewAnimatorEnded() {
+    func p9ViewAnimatorScenarioEnded(_ scenarioName: String!) {
         
-        self.kingghidorahImageView.alpha = 1.0
+        if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
+            self.kingghidorahImageView.alpha = 1.0
+        }
     }
     
     func p9ViewAnimatorReady(forTargetName targetName: String!) -> Bool {
         
-        if targetName == kighidorahTargetName {
-            if self.kingghidorahImageView != nil {
-                return true
-            }
+        switch( targetName ) {
+            case kighidorahTargetName :
+                if self.kingghidorahImageView != nil {
+                    return true
+                }
+            case ryuTargetName :
+                if self.ryuView != nil {
+                    return true
+                }
+            default :
+                break
         }
         return false
     }
     
     func p9ViewAnimatorView(forTargetName targetName: String!) -> UIView? {
         
-        if targetName == kighidorahTargetName {
-            return self.kingghidorahImageView
+        switch( targetName ) {
+        case kighidorahTargetName :
+            if self.kingghidorahImageView != nil {
+                return self.kingghidorahImageView
+            }
+        case ryuTargetName :
+            if self.ryuView != nil {
+                return self.ryuView
+            }
+        default :
+            break
         }
         return nil
     }
     
     func p9ViewAnimatorFrame(forTargetName targetName: String!) -> CGRect {
         
-        if targetName == kighidorahTargetName {
-            return self.kingghidorahImageView.frame
+        switch( targetName ) {
+        case kighidorahTargetName :
+            if self.kingghidorahImageView != nil {
+                return self.kingghidorahImageView.frame
+            }
+        case ryuTargetName :
+            if self.ryuView != nil {
+                return self.ryuView.frame
+            }
+        default :
+            break
         }
         return .zero
     }
-
+    
+    func p9ViewAnimatorSetVelocity(_ relativeVelocity: CGFloat, forTargetName targetName: String!) {
+        
+        if targetName == ryuTargetName {
+            self.ryuScene.setRelativeVelocity(relativeVelocity)
+        }
+    }
+    
+    func p9ViewAnimatorPlayTargetName(_ targetName: String!) {
+        
+        if targetName == ryuTargetName {
+            self.ryuScene.play()
+        }
+    }
 }
 
