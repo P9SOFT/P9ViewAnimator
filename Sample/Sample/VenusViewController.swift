@@ -66,7 +66,7 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         self.performSegue(withIdentifier: flyToTheEarthIdentifier, sender: self)
     }
     
-    func p9ViewAnimatorScenarioStarted(_ scenarioName: String!) {
+    func p9ViewAnimatorScenarioStarted(_ scenarioName: String) {
 
         if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
             if( self.kingghidorahImageView != nil ) {
@@ -79,7 +79,7 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         }
     }
     
-    func p9ViewAnimatorScenarioEnded(_ scenarioName: String!) {
+    func p9ViewAnimatorScenarioEnded(_ scenarioName: String) {
         
         if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
             self.kingghidorahImageView.alpha = 1.0
@@ -88,7 +88,7 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         }
     }
     
-    func p9ViewAnimatorReady(forTargetName targetName: String!) -> Bool {
+    func p9ViewAnimatorReady(forTargetName targetName: String) -> Bool {
         
         if targetName == kighidorahTargetName {
             if self.kingghidorahImageView != nil {
@@ -98,7 +98,7 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         return false
     }
     
-    func p9ViewAnimatorView(forTargetName targetName: String!) -> UIView? {
+    func p9ViewAnimatorView(forTargetName targetName: String) -> UIView? {
         
         if targetName == kighidorahTargetName {
             return self.kingghidorahImageView
@@ -106,7 +106,7 @@ class VenusViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         return nil
     }
     
-    func p9ViewAnimatorFrame(forTargetName targetName: String!) -> CGRect {
+    func p9ViewAnimatorFrame(forTargetName targetName: String) -> CGRect {
         
         if targetName == kighidorahTargetName {
             return self.kingghidorahImageView.frame

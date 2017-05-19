@@ -11,7 +11,7 @@
 
 @implementation P9ViewAnimatorKeyframe
 
-- (id)init
+- (instancetype)init
 {
     if( (self = [super init]) != nil ) {
         _type = P9ViewAnimatorKeyframeTypeDummy;

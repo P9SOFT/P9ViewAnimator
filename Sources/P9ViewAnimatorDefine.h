@@ -9,20 +9,20 @@
 
 @import UIKit;
 
-typedef void(^P9ViewAnimatorActionBlock)(UIView *actingView);
+typedef void(^P9ViewAnimatorActionBlock)(UIView * _Nonnull actingView);
 
 @protocol P9ViewAnimatorTargetObjectProtocol <NSObject>
 
-- (void)P9ViewAnimatorScenarioStarted:(NSString *)scenarioName;
-- (void)P9ViewAnimatorScenarioEnded:(NSString *)scenarioName;
-- (BOOL)P9ViewAnimatorReadyForTargetName:(NSString *)targetName;
+- (void)P9ViewAnimatorScenarioStarted:(NSString * _Nonnull)scenarioName;
+- (void)P9ViewAnimatorScenarioEnded:(NSString * _Nonnull)scenarioName;
+- (BOOL)P9ViewAnimatorReadyForTargetName:(NSString * _Nonnull)targetName;
 
 @optional
-- (UIView *)P9ViewAnimatorViewForTargetName:(NSString *)targetName;
-- (CGRect)P9ViewAnimatorFrameForTargetName:(NSString *)targetName;
-- (void)P9ViewAnimatorSetVelocity:(CGFloat)relativeVelocity forTargetName:(NSString *)targetName;
-- (void)P9ViewAnimatorSetLoop:(BOOL)loop forTargetName:(NSString *)targetName;
-- (void)P9ViewAnimatorPlayTargetName:(NSString *)targetName;
+- (UIView * _Nullable)P9ViewAnimatorViewForTargetName:(NSString * _Nonnull)targetName;
+- (CGRect)P9ViewAnimatorFrameForTargetName:(NSString * _Nonnull)targetName;
+- (void)P9ViewAnimatorSetVelocity:(CGFloat)relativeVelocity forTargetName:(NSString * _Nonnull)targetName;
+- (void)P9ViewAnimatorSetLoop:(BOOL)loop forTargetName:(NSString * _Nonnull)targetName;
+- (void)P9ViewAnimatorPlayTargetName:(NSString * _Nonnull)targetName;
 
 @end
 

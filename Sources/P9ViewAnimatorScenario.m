@@ -11,7 +11,7 @@
 
 @implementation P9ViewAnimatorScenario
 
-- (id)init
+- (instancetype)init
 {
     if( (self = [super init]) != nil ) {
         

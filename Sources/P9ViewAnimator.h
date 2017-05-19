@@ -16,37 +16,37 @@
 
 @interface P9ViewAnimator : NSObject
 
-+ (P9ViewAnimator *)defaultP9ViewAnimator;
++ (P9ViewAnimator * _Nonnull)defaultP9ViewAnimator;
 
-- (BOOL)loadScenariosFromFile:(NSString *)filePath overwrite:(BOOL)overwrite;
-- (BOOL)loadScenariosFromData:(NSData *)data overwrite:(BOOL)overwrite;
-- (BOOL)loadScenariosFromDict:(NSDictionary *)scenarioDict overwrie:(BOOL)overwrite;
+- (BOOL)loadScenariosFromFile:(NSString * _Nullable)filePath overwrite:(BOOL)overwrite;
+- (BOOL)loadScenariosFromData:(NSData * _Nullable)data overwrite:(BOOL)overwrite;
+- (BOOL)loadScenariosFromDict:(NSDictionary * _Nullable)scenarioDict overwrie:(BOOL)overwrite;
 
-- (BOOL)createScenario:(NSString *)scenarioName;
-- (void)removeScenarioForName:(NSString *)scenarioName;
+- (BOOL)createScenario:(NSString * _Nullable)scenarioName;
+- (void)removeScenarioForName:(NSString * _Nullable)scenarioName;
 - (void)removeAllScenarios;
 
-- (BOOL)addKeyframeFrameAniToScenario:(NSString *)scenarioName after:(NSTimeInterval)after targetName:(NSString *)targetName velopcity:(CGFloat)velocity loop:(BOOL)loop itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeMorphToScenario:(NSString *)scenarioName after:(NSTimeInterval)after targetName:(NSString *)targetName itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeMorphToScenario:(NSString *)scenarioName after:(NSTimeInterval)after targetView:(UIView *)targetView itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeMorphToScenario:(NSString *)scenarioName after:(NSTimeInterval)after targetFrame:(CGRect)targetFrame itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeAlphaToScenario:(NSString *)scenarioName after:(NSTimeInterval)after alpha:(CGFloat)alpha itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeTranslateToScenario:(NSString *)scenarioName after:(NSTimeInterval)after x:(CGFloat)x y:(CGFloat)y itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeRotateXToScenario:(NSString *)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeRotateXToScenario:(NSString *)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle anchorX:(CGFloat)anchorX anchorY:(CGFloat)anchorY itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeRotateYToScenario:(NSString *)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeRotateYToScenario:(NSString *)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle anchorX:(CGFloat)anchorX anchorY:(CGFloat)anchorY itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeRotateZToScenario:(NSString *)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeRotateZToScenario:(NSString *)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle anchorX:(CGFloat)anchorX anchorY:(CGFloat)anchorY itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeScaleToScenario:(NSString *)scenarioName after:(NSTimeInterval)after x:(CGFloat)x y:(CGFloat)y itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeScaleToScenario:(NSString *)scenarioName after:(NSTimeInterval)after x:(CGFloat)x y:(CGFloat)y anchorX:(CGFloat)anchorX anchorY:(CGFloat)anchorY itprType:(P9ViewAnimatorInterpolationType)itprType;
-- (BOOL)addKeyframeActionToScenario:(NSString *)scenarioName after:(NSTimeInterval)after adlib:(P9ViewAnimatorActionBlock)adlib;
+- (BOOL)addKeyframeFrameAniToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after targetName:(NSString * _Nullable)targetName velopcity:(CGFloat)velocity loop:(BOOL)loop itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeMorphToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after targetName:(NSString * _Nullable)targetName itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeMorphToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after targetView:(UIView * _Nullable)targetView itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeMorphToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after targetFrame:(CGRect)targetFrame itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeAlphaToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after alpha:(CGFloat)alpha itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeTranslateToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after x:(CGFloat)x y:(CGFloat)y itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeRotateXToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeRotateXToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle anchorX:(CGFloat)anchorX anchorY:(CGFloat)anchorY itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeRotateYToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeRotateYToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle anchorX:(CGFloat)anchorX anchorY:(CGFloat)anchorY itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeRotateZToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeRotateZToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after angle:(CGFloat)angle anchorX:(CGFloat)anchorX anchorY:(CGFloat)anchorY itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeScaleToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after x:(CGFloat)x y:(CGFloat)y itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeScaleToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after x:(CGFloat)x y:(CGFloat)y anchorX:(CGFloat)anchorX anchorY:(CGFloat)anchorY itprType:(P9ViewAnimatorInterpolationType)itprType;
+- (BOOL)addKeyframeActionToScenario:(NSString * _Nullable)scenarioName after:(NSTimeInterval)after adlib:(P9ViewAnimatorActionBlock _Nullable)adlib;
 
-- (void)action:(UIView *)actorView withScenario:(NSString *)scenarioName delay:(NSTimeInterval)delay targetObject:(id<P9ViewAnimatorTargetObjectProtocol>)targetObject beginning:(P9ViewAnimatorActionBlock)beginning completion:(P9ViewAnimatorActionBlock)completion;
-- (void)actionDecoy:(UIView *)actorView onStageView:(UIView *)stageView withScenario:(NSString *)scenarioName delay:(NSTimeInterval)delay targetObject:(id<P9ViewAnimatorTargetObjectProtocol>)targetObject beginning:(P9ViewAnimatorActionBlock)beginning completion:(P9ViewAnimatorActionBlock)completion;
-- (void)stopAction:(UIView *)actorView;
+- (void)action:(UIView * _Nullable)actorView withScenario:(NSString * _Nullable)scenarioName delay:(NSTimeInterval)delay targetObject:(id<P9ViewAnimatorTargetObjectProtocol> _Nullable)targetObject beginning:(P9ViewAnimatorActionBlock _Nullable)beginning completion:(P9ViewAnimatorActionBlock _Nullable)completion;
+- (void)actionDecoy:(UIView * _Nullable)actorView onStageView:(UIView * _Nullable)stageView withScenario:(NSString * _Nullable)scenarioName delay:(NSTimeInterval)delay targetObject:(id<P9ViewAnimatorTargetObjectProtocol> _Nullable)targetObject beginning:(P9ViewAnimatorActionBlock _Nullable)beginning completion:(P9ViewAnimatorActionBlock _Nullable)completion;
+- (void)stopAction:(UIView * _Nullable)actorView;
 - (void)stopAllActions;
 
-@property (nonatomic, strong) UIView *defaultStageView;
+@property (nonatomic, strong) UIView * _Nullable defaultStageView;
 
 @end

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         self.stageView.backgroundColor = .clear
-        self.stageView.layer.zPosition = CGFloat(FLT_MAX);
+        self.stageView.layer.zPosition = .greatestFiniteMagnitude
         if let bounds = self.window?.bounds {
             self.stageView.frame = bounds
         }

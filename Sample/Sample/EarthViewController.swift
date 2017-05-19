@@ -45,7 +45,7 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
             self.backToVenusButton.isEnabled = false
         }
         
-        P9ViewDragger.defaultTracker().trackingView(self.ryuView, parameters: nil, ready: nil, trackingHandler: nil, completion: nil)
+        P9ViewDragger.default().trackingView(self.ryuView, parameters: nil, ready: nil, trackingHandler: nil, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,7 +91,7 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         }
     }
     
-    func p9ViewAnimatorScenarioStarted(_ scenarioName: String!) {
+    func p9ViewAnimatorScenarioStarted(_ scenarioName: String) {
 
         if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
             if( self.kingghidorahImageView != nil ) {
@@ -104,7 +104,7 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         }
     }
     
-    func p9ViewAnimatorScenarioEnded(_ scenarioName: String!) {
+    func p9ViewAnimatorScenarioEnded(_ scenarioName: String) {
         
         if (scenarioName == flyToTheEarthScenarioName) || (scenarioName == flyToTheVenusScenarioName) {
             self.kingghidorahImageView.alpha = 1.0
@@ -113,7 +113,7 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         }
     }
     
-    func p9ViewAnimatorReady(forTargetName targetName: String!) -> Bool {
+    func p9ViewAnimatorReady(forTargetName targetName: String) -> Bool {
         
         switch( targetName ) {
             case kighidorahTargetName :
@@ -130,7 +130,7 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         return false
     }
     
-    func p9ViewAnimatorView(forTargetName targetName: String!) -> UIView? {
+    func p9ViewAnimatorView(forTargetName targetName: String) -> UIView? {
         
         switch( targetName ) {
         case kighidorahTargetName :
@@ -147,7 +147,7 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         return nil
     }
     
-    func p9ViewAnimatorFrame(forTargetName targetName: String!) -> CGRect {
+    func p9ViewAnimatorFrame(forTargetName targetName: String) -> CGRect {
         
         switch( targetName ) {
         case kighidorahTargetName :
@@ -164,14 +164,14 @@ class EarthViewController: UIViewController, P9ViewAnimatorTargetObjectProtocol 
         return .zero
     }
     
-    func p9ViewAnimatorSetVelocity(_ relativeVelocity: CGFloat, forTargetName targetName: String!) {
+    func p9ViewAnimatorSetVelocity(_ relativeVelocity: CGFloat, forTargetName targetName: String) {
         
         if targetName == ryuTargetName {
             self.ryuScene.setRelativeVelocity(relativeVelocity)
         }
     }
     
-    func p9ViewAnimatorPlayTargetName(_ targetName: String!) {
+    func p9ViewAnimatorPlayTargetName(_ targetName: String) {
         
         if targetName == ryuTargetName {
             self.ryuScene.play()

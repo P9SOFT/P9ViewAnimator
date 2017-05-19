@@ -41,7 +41,7 @@
     return sharedInstance;
 }
 
-- (id)init
+- (instancetype)init
 {
     if( (self = [super init]) != nil ) {
         
@@ -722,7 +722,7 @@
         }
         UIView *realActorView = (script.decoyView != nil) ? script.decoyView : script.actorView;
         while( script.keyframes.count > 0 ) {
-            P9ViewAnimatorKeyframe *keyframe = [script.keyframes firstObject];
+            P9ViewAnimatorKeyframe *keyframe = (script.keyframes).firstObject;
             if( keyframe.after > 0 ) {
                 break;
             }
@@ -760,7 +760,7 @@
         return;
     }
     
-    P9ViewAnimatorKeyframe *keyframe = [script.keyframes firstObject];
+    P9ViewAnimatorKeyframe *keyframe = (script.keyframes).firstObject;
     
     if( keyframe.type == P9ViewAnimatorKeyframeTypeMorphTargetName ) {
         if( [script.targetObject P9ViewAnimatorReadyForTargetName:keyframe.targetName] == NO ) {
@@ -778,7 +778,7 @@
         [self updateActorView:realActorView withKeyframe:keyframe];
         [script.keyframes removeObjectAtIndex:0];
         if( script.keyframes.count > 0 ) {
-            P9ViewAnimatorKeyframe *sametimeKeyframe = [script.keyframes firstObject];
+            P9ViewAnimatorKeyframe *sametimeKeyframe = (script.keyframes).firstObject;
             do {
                 if( sametimeKeyframe.after > 0 ) {
                     break;
@@ -786,7 +786,7 @@
                 [self changeAnchor:CGPointMake(sametimeKeyframe.anchorX, sametimeKeyframe.anchorY) forView:realActorView];
                 [self updateActorView:realActorView withKeyframe:sametimeKeyframe];
                 [script.keyframes removeObjectAtIndex:0];
-                sametimeKeyframe = [script.keyframes firstObject];
+                sametimeKeyframe = (script.keyframes).firstObject;
             } while( sametimeKeyframe != nil );
         }
         [self pumpKeyframeForScript:script];

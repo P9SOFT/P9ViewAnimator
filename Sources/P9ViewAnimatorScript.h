@@ -12,13 +12,13 @@
 
 @interface P9ViewAnimatorScript : NSObject
 
-@property (nonatomic, strong) NSString *scenarioName;
-@property (nonatomic, strong) UIView *actorView;
+@property (nonatomic, strong) NSString * _Nullable scenarioName;
+@property (nonatomic, strong) UIView * _Nullable actorView;
 @property (nonatomic, assign) CGRect actorViewOriginFrame;
-@property (nonatomic, strong) UIView *decoyView;
-@property (nonatomic, strong) NSMutableArray *keyframes;
-@property (nonatomic, strong) id<P9ViewAnimatorTargetObjectProtocol> targetObject;
-@property (nonatomic, strong) P9ViewAnimatorActionBlock beginning;
-@property (nonatomic, strong) P9ViewAnimatorActionBlock completion;
+@property (nonatomic, strong) UIView * _Nullable decoyView;
+@property (nonatomic, strong) NSMutableArray * _Nullable keyframes;
+@property (nonatomic, strong) id<P9ViewAnimatorTargetObjectProtocol> _Nullable targetObject;
+@property (nonatomic, strong) P9ViewAnimatorActionBlock _Nullable beginning;
+@property (nonatomic, strong) P9ViewAnimatorActionBlock _Nullable completion;
 
 @end

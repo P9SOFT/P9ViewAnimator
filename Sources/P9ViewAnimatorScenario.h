@@ -13,9 +13,9 @@
 
 @interface P9ViewAnimatorScenario : NSObject
 
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSMutableArray *keyframes;
-@property (nonatomic, strong) P9ViewAnimatorActionBlock beginning;
-@property (nonatomic, strong) P9ViewAnimatorActionBlock completion;
+@property (nonatomic, strong) NSString * _Nullable name;
+@property (nonatomic, strong) NSMutableArray * _Nonnull keyframes;
+@property (nonatomic, strong) P9ViewAnimatorActionBlock _Nullable beginning;
+@property (nonatomic, strong) P9ViewAnimatorActionBlock _Nullable completion;
 
 @end
