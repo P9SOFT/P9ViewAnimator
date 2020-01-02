@@ -2,118 +2,118 @@
     "roar":[
         {
             "type":"rotateZ",
-            "after":"0.2",
-            "angle":"-10.0",
-            "anchorX":"0.5",
-            "anchorY":"1.0",
+            "after":0.2,
+            "angle":-10.0,
+            "anchorX":0.5,
+            "anchorY":1.0,
             "interpolation":"easeIn"
         },
         {
              "type":"translate",
-             "after":"0.0",
-             "x":"-10.0",
-             "y":"0.0",
+             "after":0.0,
+             "x":-10.0,
+             "y":0.0,
              "interpolation":"easeIn"
         },
         {
              "type":"rotateZ",
-             "after":"0.3",
-             "angle":"20.0",
-             "anchorX":"0.5",
-             "anchorY":"1.0",
+             "after":0.3,
+             "angle":20.0,
+             "anchorX":0.5,
+             "anchorY":1.0,
              "interpolation":"linear"
         },
         {
             "type":"translate",
-            "after":"0.0",
-            "x":"20.0",
-            "y":"0.0",
+            "after":0.0,
+            "x":20.0,
+            "y":0.0,
             "interpolation":"linear"
         },
         {
              "type":"rotateZ",
-             "after":"0.3",
-             "angle":"-20.0",
-             "anchorX":"0.5",
-             "anchorY":"1.0",
+             "after":0.3,
+             "angle":-20.0,
+             "anchorX":0.5,
+             "anchorY":1.0,
              "interpolation":"linear"
         },
         {
              "type":"translate",
-             "after":"0.0",
-             "x":"-20.0",
-             "y":"0.0",
+             "after":0.0,
+             "x":-20.0,
+             "y":0.0,
              "interpolation":"linear"
         },
         {
              "type":"rotateZ",
-             "after":"0.2",
-             "angle":"20.0",
-             "anchorX":"0.5",
-             "anchorY":"1.0",
+             "after":0.2,
+             "angle":20.0,
+             "anchorX":0.5,
+             "anchorY":1.0,
              "interpolation":"linear"
         },
         {
              "type":"translate",
-             "after":"0.0",
-             "x":"20.0",
-             "y":"0.0",
+             "after":0.0,
+             "x":20.0,
+             "y":0.0,
              "interpolation":"linear"
         },
         {
              "type":"rotateZ",
-             "after":"0.2",
-             "angle":"-20.0",
-             "anchorX":"0.5",
-             "anchorY":"1.0",
+             "after":0.2,
+             "angle":-20.0,
+             "anchorX":0.5,
+             "anchorY":1.0,
              "interpolation":"linear"
         },
         {
              "type":"translate",
-             "after":"0.0",
-             "x":"-15.0",
-             "y":"0.0",
+             "after":0.0,
+             "x":-15.0,
+             "y":0.0,
              "interpolation":"linear"
         },
         {
              "type":"rotateZ",
-             "after":"0.2",
-             "angle":"10.0",
-             "anchorX":"0.5",
-             "anchorY":"1.0",
+             "after":0.2,
+             "angle":10.0,
+             "anchorX":0.5,
+             "anchorY":1.0,
              "interpolation":"easeOut"
         },
         {
              "type":"translate",
-             "after":"0.0",
-             "x":"5.0",
-             "y":"0.0",
+             "after":0.0,
+             "x":5.0,
+             "y":0.0,
              "interpolation":"easeOut"
         }
     ],
     "flyToTheVenus":[
         {
              "type":"rotateZ",
-             "after":"1.0",
-             "angle":"360.0",
+             "after":1.0,
+             "angle":360.0,
              "interpolation":"easeIn"
         },
         {
              "type":"alpha",
-             "after":"0.0",
-             "alpha":"0.4",
+             "after":0.0,
+             "alpha":0.4,
              "interpolation":"easeIn"
         },
         {
              "type":"morph",
-             "after":"1.0",
+             "after":1.0,
              "target":"kinghidorahTargetView",
              "interpolation":"easeOut"
         },
         {
              "type":"alpha",
-             "after":"0.0",
-             "alpha":"1.0",
+             "after":0.0,
+             "alpha":1.0,
              "interpolation":"easeOut"
         }
     ]

@@ -706,7 +706,7 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)delay*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         BOOL goOn = YES;
         @synchronized (self) {
-            if( _actorViewDict[[self keyForObject:script.actorView]] == nil ) {
+            if( self->_actorViewDict[[self keyForObject:script.actorView]] == nil ) {
                 goOn = NO;
             }
         }
