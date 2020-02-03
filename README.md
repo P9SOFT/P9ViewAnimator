@@ -291,7 +291,7 @@ P9ViewAnimator.default().stopAllActions()
 
 P9ViewAnimator support json file format to load scenarios.
 
-```json
+```
 {
    "<scenario name>" : [
         {
